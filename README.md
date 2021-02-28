@@ -18,10 +18,19 @@ Agora vamos ao que foi usado:
 
 ### Home
 
-Onde é listado os filmes em alta, segundo a API da plataforma.
+Onde é listado os filmes em alta, segundo a API da plataforma. 
 
-<img src="./screenshots/home.png" alt="Home Project Pavo" style="width:300px;"/>
+Nessa tela foi criado uma tela de que carrega até o final dos dados que podem ser fornecidos sem recriar novamente a tela, basicamente uma paginação automatica, também conhecida como "Infinite Scrolling", que é recarregado todo momento que o usuário chegar no final da lista. 
 
+Além também de ter a possibilidade de trocar o tema padrão de visualização, entre dark e ligth.
+
+Caso aconteça algum erro do lado do servidor todos os dados serão tratados do nosso lado, e será apresentado uma mensagem de erro amigável. 
+
+<img src="./screenshots/home.png" alt="Home" width="300px;"/>
+
+<img src="./screenshots/change_theme.png" alt="Change theme" width="300px;"/>
+
+<img src="./screenshots/error_in_server.png" alt="Error in server" width="300px;"/>
 
 ## Referências
 - [Documentação da API](https://www.themoviedb.org/documentation/api);

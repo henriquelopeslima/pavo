@@ -16,7 +16,7 @@ class MovieService implements IMovieService {
   MovieService({@required this.movieRepository});
 
   @override
-  Future<List<MovieModel>> getMovies() {
-    return movieRepository.getMovies();
+  Future<List<MovieModel>> getMovies({int page}) {
+    return movieRepository.getMovies(page: page);
   }
 }

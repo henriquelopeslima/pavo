@@ -4,25 +4,26 @@ class MoviesException implements Exception {
   MoviesException.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.CANCEL:
-        message = "Request to API server was cancelled";
+        message = "A solicitação para o servidor API foi cancelada 😰";
         break;
       case DioErrorType.CONNECT_TIMEOUT:
-        message = "Connection timeout with API server";
+        message = "Tempo limite de conexão com servidor API 😰";
         break;
       case DioErrorType.DEFAULT:
-        message = "Connection to API server failed due to internet connection";
+        message =
+            "A conexão com o servidor API falhou devido à conexão com a Internet 😰";
         break;
       case DioErrorType.RECEIVE_TIMEOUT:
-        message = "Receive timeout in connection with API server";
+        message = "Tempo limite de espera em conexão com o servidor API 😰";
         break;
       case DioErrorType.RESPONSE:
         message = _handleError(dioError.response.statusCode);
         break;
       case DioErrorType.SEND_TIMEOUT:
-        message = "Send timeout in connection with API server";
+        message = "Tempo limite de envio em conexão com o servidor API 😰";
         break;
       default:
-        message = "Something went wrong";
+        message = "Algo deu errado 😰";
         break;
     }
   }
@@ -32,13 +33,13 @@ class MoviesException implements Exception {
   String _handleError(int statusCode) {
     switch (statusCode) {
       case 400:
-        return 'Bad request';
+        return 'Requisição mal formada 😰';
       case 404:
-        return 'The requested resource was not found';
+        return 'O recurso solicitado não foi encontrado 😰';
       case 500:
-        return 'Internal server error';
+        return 'Erro interno no servidor 😰';
       default:
-        return 'Oops something went wrong';
+        return 'Ops, algo deu errado 😰';
     }
   }
 

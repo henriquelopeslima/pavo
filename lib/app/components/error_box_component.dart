@@ -13,16 +13,27 @@ class ErrorBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            child: Text(message),
+            width: 250,
+            child: Center(
+              child: Text(
+                message,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+            ),
           ),
+          Container(height: 10),
           ElevatedButton(
             onPressed: function,
-            child: Text("Tente novamente"),
+            child: Text(
+              "Tente novamente",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            ),
           ),
         ],
       ),

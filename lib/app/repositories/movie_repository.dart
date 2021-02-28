@@ -13,10 +13,10 @@ class MovieRepository implements IMovieRepository {
   final EnvironmentConfig _environmentConfig;
   final Dio _dio;
 
-  Future<List<MovieModel>> getMovies() async {
+  Future<List<MovieModel>> getMovies({int page}) async {
     try {
       final response = await _dio.get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=${_environmentConfig.movieApiKey}&language=pt-BR&page=1",
+        "https://api.themoviedb.org/3/movie/popular?api_key=${_environmentConfig.movieApiKey}&language=pt-BR&page=$page",
       );
 
       final results = List<Map<String, dynamic>>.from(response.data['results']);

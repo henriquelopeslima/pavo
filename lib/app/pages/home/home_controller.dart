@@ -2,13 +2,13 @@ import 'package:mobx/mobx.dart';
 import 'package:pavo/app/services/interfaces/movie_service_interface.dart';
 import 'package:pavo/app/utils/movie_exception.dart';
 
-import '../models/movie_model.dart';
+import '../../models/movie_model.dart';
 
-part 'movie_controller.g.dart';
+part 'home_controller.g.dart';
 
-class MovieController = _MovieControllerBase with _$MovieController;
+class HomeController = _HomeControllerBase with _$HomeController;
 
-abstract class _MovieControllerBase with Store {
+abstract class _HomeControllerBase with Store {
   final IMovieService movieService;
 
   @observable
@@ -17,18 +17,26 @@ abstract class _MovieControllerBase with Store {
   @observable
   String errorMenssage = "";
 
-  _MovieControllerBase({this.movieService}) {
+  @observable
+  int page = 1;
+
+  _HomeControllerBase({this.movieService}) {
     getMovies();
   }
 
   @action
   getMovies() async {
     try {
-      moveis = await movieService.getMovies();
+      moveis += await movieService.getMovies(page: page);
       errorMenssage = "";
     } on MoviesException catch (e) {
       moveis = [];
       errorMenssage = e.toString();
     }
+  }
+
+  loadingMovies() {
+    this.page += 1;
+    this.getMovies();
   }
 }
